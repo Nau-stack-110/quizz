@@ -1,6 +1,6 @@
 # 📚 Quiz 
 
-Un quiz interactif et responsive testant vos connaissances générales avec des fonctionnalités modernes.
+Un quiz interactif et responsive testant vos connaissances avec des fonctionnalités modernes.
 
 ## 🎮 Fonctionnalités Principales
 - ⏱️ **Timer dynamique** (5 secondes par question)
@@ -39,6 +39,3 @@ Un quiz interactif et responsive testant vos connaissances générales avec des 
 git clone https://github.com/Nau-stack-110/quiz.git
 ```
 2. Ouvrez `index.html` dans votre navigateur
-
-## 📄 License
-Projet sous licence MIT - © 2025 Nau-stack-110 
