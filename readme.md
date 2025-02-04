@@ -5,7 +5,7 @@ Un quiz interactif et responsive testant vos connaissances avec des fonctionnali
 ## 🎮 Fonctionnalités Principales
 - ⏱️ **Timer dynamique** (5 secondes par question)
 - 📊 **Barre de progression** visuelle
-- 🎨 Animations fluides (apparition, secousse, fondu)
+- 🎨 Animations fluides
 - 📱 Design **100% responsive** adapté à tous écrans
 - ✅❌ Feedback visuel immédiat avec émojis
 - 📝 Résumé des résultats avec statistiques
@@ -22,7 +22,7 @@ Un quiz interactif et responsive testant vos connaissances avec des fonctionnali
 7. Cliquez sur "Recommencer" pour un nouveau quiz
 
 ## 💻 Technologies Utilisées
-- **HTML5** pour la structure
+- **HTML5**
 - **CSS3**
 - **JavaScript**
 
