@@ -23,15 +23,8 @@ Un quiz interactif et responsive testant vos connaissances avec des fonctionnali
 
 ## 💻 Technologies Utilisées
 - **HTML5** pour la structure
-- **CSS3** avec :
-  - Flexbox/Grid pour le layout
-  - Animations et transitions
-  - Media queries pour le responsive
-- **JavaScript** pour :
-  - Gestion de la logique du quiz
-  - Manipulation DOM dynamique
-  - Gestion des timers
-  - Stockage des résultats
+- **CSS3**
+- **JavaScript**
 
 ## 🚀 Installation
 1. Clonez le dépôt :
