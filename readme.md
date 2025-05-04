@@ -1,4 +1,4 @@
-# 📚 Quiz 
+# 📚 QuizMada
 
 Un quiz interactif et responsive testant vos connaissances avec des fonctionnalités modernes.
 
@@ -10,7 +10,7 @@ Un quiz interactif et responsive testant vos connaissances avec des fonctionnali
 - ✅❌ Feedback visuel immédiat avec émojis
 - 📝 Résumé des résultats avec statistiques
 - 🔄 Possibilité de recommencer le quiz
-- 🏆 Système de scoring avec messages personnalisés
+- 🏆 Système de scoring 
 
 ## 📖 Règles du Jeu
 1. Vous avez **5 secondes** par question

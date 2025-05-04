@@ -2,31 +2,45 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz Culture Générale 🌍</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="fixed-nav">
+<dialog id="welcome-dialog" class="welcome-dialog" role="dialog" aria-labelledby="welcome-title">
+    <div class="dialog-content">
+        <img src="favicon.png" alt="Logo du Quiz" class="dialog-logo">
+        <h2 id="welcome-title">Prêt à défier les zébus savants? 🚀 Lance-toi dans le quiz ! </h2>
+        <button id="start-quiz-btn" class="start-btn" aria-label="Commencer le quiz">Commencer</button>
+    </div>
+</dialog>
+    <nav class="fixed-nav" role="navigation">
         <div class="nav-content">
-            <span class="logo">📚 Quiz Général</span>
-            <div class="progress-bar">
+            <span class="logo" aria-label="Nom du quiz">📚 Quiz Mada</span>
+            <div class="progress-bar" role="progressbar" aria-label="Progression du quiz">
                 <div class="progress"></div>
             </div>
         </div>
-        <div class="timer">30s</div>
+        <div class="timer" aria-live="polite">5s</div>
     </nav>
 
     <div class="container">
-        <!-- Conteneur principal du quiz -->
-        <main class="quiz-container">
-            <div class="question-container animate-pop">
-                <h2 class="question">Chargement... ⏳</h2>
-                <div class="options-grid"></div>
+        <main class="quiz-container" role="main">
+            <div class="question-container animate-fade">
+                <h2 class="question" aria-live="assertive">Chargement... ⏳</h2>
+                <div class="options-grid" role="radiogroup"></div>
             </div>
             <div class="result-container"></div>
-            <button class="next-btn animate-bounce">Suivant ➡️</button>
         </main>
     </div>
+
+    <footer class="fixed-footer" role="contentinfo">
+        <div class="footer-content">
+            <p> ❤️ Créé par <span class="highlight">Naunau</span> | Mai 2025 | Version 1.0.0</p>
+            <a href="mailto:andriatahianaarnaud@gmail.com" class="contact-link" aria-label="Contacter Naunau">📧 Contact</a>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>

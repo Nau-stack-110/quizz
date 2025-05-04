@@ -1,0 +1,50 @@
+/*
+x = false
+console.log(!x)
+
+z=["io", "meme", "zaj", "ireo"]
+var y = z.shift()
+console.log(y)
+z.push(y)
+console.log(z)
+
+console.log("index du :" + z.indexOf("zaj"))
+
+console.log(z.join(" sees "))
+console.log(Math.floor(Math.random() *4))
+*/
+
+/*
+var randomWords = ["Explosion", "Cave", "Princess", "Pen"];
+var randomIndex = Math.floor(Math.random() * 4);
+console.log(randomWords[randomIndex]);
+*/
+
+/*
+var randomBodyParts = ["Face", "Nose", "Hair"];
+var randomAdjectives = ["Smelly", "Boring", "Stupid"];
+var randomWords = ["Fly", "Marmot", "Stick", "Monkey", "Rat"];
+
+var randomBodyPart = randomBodyParts[Math.floor(Math.random() * randomBodyParts.length)];
+var randomAdjective = randomAdjectives[Math.floor(Math.random() * randomAdjectives.length)];
+var randomWord = randomWords[Math.floor(Math.random() * 5)];
+
+
+var randomInsult = ["Your " + randomBodyPart + " is like a " + randomAdjective + " " + randomWord + "!!!"].join(" ");
+console.log(randomInsult);
+*/
+
+/*
+var cat = {  legs: 3,  name: "Harmony",  color: "Tortoiseshell" };
+console.log(cat["name"]) //console.log(cat.name)
+*/
+/*console.log(Object.keys(cat))
+
+
+var cat = {};
+cat.legs = 3;
+cat.name = "Naunau";
+cat.color = "MyShellPower";
+
+console.log(cat)
+*/
