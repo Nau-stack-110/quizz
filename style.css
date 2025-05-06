@@ -171,7 +171,7 @@ body {
 /* Résultat final */
 .final-score {
     text-align: center;
-    padding: 2rem;
+    padding: 1.5rem; /* Réduit de 2rem pour compacter */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -179,64 +179,91 @@ body {
 }
 
 .final-score h2 {
-    font-size: 1.6rem;
-    margin-bottom: 1rem;
+    font-size: 1.4rem; /* Réduit de 1.6rem */
+    margin-bottom: 0.8rem; /* Réduit de 1rem */
 }
 
 .score {
-    font-size: 2.2rem;
+    font-size: 1.8rem; /* Réduit de 2.2rem */
     color: var(--success-color);
     background: var(--card-bg);
-    padding: 0.8rem 1.5rem;
+    padding: 0.6rem 1.2rem; /* Réduit de 0.8rem 1.5rem */
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
-    margin: 1rem auto;
+    margin: 0.8rem auto; /* Réduit de 1rem */
     width: fit-content;
 }
 
 .questions-review {
-    margin: 1.5rem auto;
+    margin: 1rem auto; /* Réduit de 1.5rem */
     max-width: 600px;
 }
 
 .question-review {
-    padding: 0.8rem;
-    margin: 0.5rem 0;
+    padding: 0.6rem; /* Réduit de 0.8rem */
+    margin: 0.3rem 0; /* Réduit de 0.5rem */
     border-radius: 8px;
-    font-size: 0.95rem;
+    font-size: 0.85rem; /* Réduit de 0.95rem */
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.question-review.correct {
-    background: #e6f4ea;
-}
-
-.question-review.incorrect {
-    background: #feecf0;
-}
-
 .question-review span {
-    font-size: 1rem;
+    font-size: 0.9rem; /* Réduit de 1rem */
 }
 
 .retry-btn {
     background: var(--primary-color);
     color: white;
     border: none;
-    padding: 0.8rem 1.5rem;
+    padding: 0.6rem 1.2rem; /* Réduit de 0.8rem 1.5rem */
     border-radius: 50px;
-    font-size: 1rem;
+    font-size: 0.9rem; /* Réduit de 1rem */
     cursor: pointer;
     transition: transform 0.3s ease;
-    margin-top: 1.5rem;
+    margin-top: 1rem; /* Réduit de 1.5rem */
 }
 
-.retry-btn:hover {
-    transform: scale(1.05);
+/* Responsive */
+@media (max-width: 768px) {
+    .final-score h2 {
+        font-size: 1.2rem; /* Réduit de 1.4rem */
+    }
+
+    .score {
+        font-size: 1.6rem; /* Réduit de 2rem */
+    }
+
+    .question-review {
+        font-size: 0.8rem; /* Réduit de 0.9rem */
+    }
+
+    .retry-btn {
+        font-size: 0.85rem; /* Réduit de 0.9rem */
+        padding: 0.5rem 1rem; /* Réduit de 0.6rem 1.2rem */
+    }
 }
 
+@media (max-width: 480px) {
+    .final-score h2 {
+        font-size: 1.1rem; /* Réduit de 1.3rem */
+    }
+
+    .score {
+        font-size: 1.4rem; /* Réduit de 1.8rem */
+        padding: 0.5rem 1rem; /* Réduit de 0.6rem 1.2rem */
+    }
+
+    .question-review {
+        font-size: 0.75rem; /* Réduit de 0.9rem */
+    }
+
+    .retry-btn {
+        font-size: 0.8rem; /* Réduit de 0.9rem */
+        padding: 0.5rem 1rem;
+    }
+}
 /* Footer */
 .fixed-footer {
     position: fixed;

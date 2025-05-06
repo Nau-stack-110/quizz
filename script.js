@@ -2,7 +2,7 @@ let currentQuestion = 0;
 let score = 0;
 let questions = [];
 let timer;
-let timeLeft = 5;
+let timeLeft = 10;
 const timerEl = document.querySelector('.timer');
 let userAnswers = [];
 
@@ -1177,6 +1177,7 @@ function validateQuestions(questions) {
 
 // Initialiser le quiz
 function initQuiz() {
+    score = 0;
     if (!validateQuestions(allQuestions)) {
         console.error('Format des questions invalide !');
         // Fallback vers une question par défaut
@@ -1194,6 +1195,26 @@ function initQuiz() {
     startTimer();
 }
 
+function restartQuiz() {
+    // Réinitialiser les variables du quiz
+    currentQuestion = 0;
+    score = 0;
+    questions = [];
+    userAnswers = [];
+    timeLeft = 10;
+    clearInterval(timer);
+    timerEl.textContent = '5s';
+    timerEl.style.display = 'block';
+    document.querySelector('.result-container').innerHTML = '';
+    document.querySelector('.question-container').style.display = 'block';
+    document.querySelector('.progress').style.width = '0%';
+
+    // Réafficher le dialogue
+    const welcomeDialog = document.getElementById('welcome-dialog');
+    welcomeDialog.showModal();
+}
+
+
 function showQuestion() {
     const questionEl = document.querySelector('.question');
     const optionsEl = document.querySelector('.options-grid');
@@ -1207,36 +1228,64 @@ function showQuestion() {
     questionEl.classList.add('animate-fade');
     timerEl.classList.add('animate-pulse');
 
-    questionEl.innerHTML = questions[currentQuestion].question;
+    // Récupérer la question actuelle
+    const currentQ = questions[currentQuestion];
+
+    // Créer un tableau d'objets pour suivre les options et leurs indices originaux
+    const optionsWithIndices = currentQ.options.map((option, index) => ({
+        option,
+        originalIndex: index
+    }));
+
+    // Mélanger les options (algorithme de Fisher-Yates)
+    for (let i = optionsWithIndices.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [optionsWithIndices[i], optionsWithIndices[j]] = [optionsWithIndices[j], optionsWithIndices[i]];
+    }
+
+    // Trouver le nouvel index de la réponse correcte
+    const correctIndex = optionsWithIndices.findIndex(item => item.originalIndex === currentQ.correct);
+
+    // Stocker l'index correct temporairement pour checkAnswer
+    currentQ.tempCorrectIndex = correctIndex;
+
+    // Afficher la question et les options mélangées
+    questionEl.innerHTML = currentQ.question;
     timerEl.textContent = `${timeLeft}s`;
-    optionsEl.innerHTML = questions[currentQuestion].options
-        .map((option, index) => `
+    optionsEl.innerHTML = optionsWithIndices
+        .map((item, index) => `
             <button class="option-btn" onclick="checkAnswer(${index})" role="radio" aria-checked="false">
-                ${option}
+                ${item.option}
             </button>
         `).join('');
 }
 
 function checkAnswer(selectedIndex) {
-    const correctIndex = questions[currentQuestion].correct;
+    const currentQ = questions[currentQuestion];
+    const correctIndex = currentQ.tempCorrectIndex;
     const options = document.querySelectorAll('.option-btn');
 
+    // Stocker la réponse de l'utilisateur
     userAnswers[currentQuestion] = selectedIndex;
 
+    // Désactiver les boutons et mettre à jour l'ARIA
     options.forEach((option, index) => {
         option.disabled = true;
         option.setAttribute('aria-checked', index === selectedIndex ? 'true' : 'false');
     });
 
+    // Vérifier si la réponse est correcte
     if (selectedIndex === correctIndex) {
         options[selectedIndex].style.backgroundColor = '#2f9e44';
         options[selectedIndex].innerHTML += ' ✅';
-        score++;
+        score++; // Incrémenter le score
+        console.log(`Question ${currentQuestion + 1}: Correct! Score = ${score}`); // Log pour débogage
     } else {
         options[selectedIndex].style.backgroundColor = '#f87171';
         options[selectedIndex].innerHTML += ' ❌';
         options[correctIndex].style.backgroundColor = '#2f9e44';
         document.querySelector('.quiz-container').classList.add('shake');
+        console.log(`Question ${currentQuestion + 1}: Incorrect. Score = ${score}`); // Log pour débogage
     }
 
     clearInterval(timer);
@@ -1245,8 +1294,8 @@ function checkAnswer(selectedIndex) {
 }
 
 function startTimer() {
-    clearInterval(timer); // S'assurer qu'aucun minuteur précédent n'est actif
-    timeLeft = 5;
+    clearInterval(timer); 
+    timeLeft = 10;
     timerEl.textContent = `${timeLeft}s`;
     timer = setInterval(() => {
         timeLeft = Math.max(timeLeft - 1, 0);
@@ -1269,7 +1318,7 @@ function handleTimeOut() {
     document.querySelector('.quiz-container').classList.add('shake');
 
     timerEl.classList.remove('animate-pulse');
-    setTimeout(nextQuestion, 2000); // Passer à la question suivante après 2 secondes
+    setTimeout(nextQuestion, 2000); 
 }
 
 function showFinalScore() {
@@ -1280,7 +1329,7 @@ function showFinalScore() {
     let reviewContent = '';
 
     questions.forEach((q, index) => {
-        const isCorrect = userAnswers[index] === q.correct;
+        const isCorrect = userAnswers[index] === q.tempCorrectIndex;
         reviewContent += `
             <div class="question-review ${isCorrect ? 'correct' : 'incorrect'}">
                 <span>${q.question}</span>
@@ -1289,6 +1338,9 @@ function showFinalScore() {
         `;
     });
 
+    // Log pour débogage
+    console.log(`Final Score: ${score}/10`);
+
     resultEl.innerHTML = `
         <div class="final-score animate-fade">
             <h2>🎉 Quiz Terminé !</h2>
@@ -1296,7 +1348,7 @@ function showFinalScore() {
             <div class="questions-review">
                 ${reviewContent}
             </div>
-            <button class="retry-btn" onclick="location.reload()" aria-label="Recommencer le quiz">↻ Recommencer</button>
+            <button class="retry-btn" onclick="restartQuiz()" aria-label="Recommencer le quiz">↻ Recommencer</button>
         </div>
     `;
 }
