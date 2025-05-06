@@ -3,7 +3,7 @@
 Un quiz interactif et responsive testant vos connaissances avec des fonctionnalités modernes.
 
 ## 🎮 Fonctionnalités Principales
-- ⏱️ **Timer dynamique** (5 secondes par question)
+- ⏱️ **Timer dynamique** (10 secondes par question)
 - 📊 **Barre de progression** visuelle
 - 🎨 Animations fluides
 - 📱 Design **100% responsive** adapté à tous écrans
