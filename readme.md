@@ -8,12 +8,12 @@ Un quiz interactif et responsive testant vos connaissances avec des fonctionnali
 - 🎨 Animations fluides
 - 📱 Design **100% responsive** adapté à tous écrans
 - ✅❌ Feedback visuel immédiat avec émojis
-- 📝 Résumé des résultats avec statistiques
+- 📝 Résumé des résultats
 - 🔄 Possibilité de recommencer le quiz
 - 🏆 Système de scoring 
 
 ## 📖 Règles du Jeu
-1. Vous avez **5 secondes** par question
+1. Vous avez **10 secondes** par question
 2. Chaque bonne réponse rapporte **1 point**
 3. Sélectionnez votre réponse en cliquant sur une option
 4. Le quiz contient **10 questions aléatoires**
