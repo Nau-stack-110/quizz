@@ -8,7 +8,7 @@ Quiz Mada vous emmène dans une aventure ludique à travers des questions varié
 ## 🎮 Fonctionnalités Principales
 - ⏱️ **Timer dynamique** (10 secondes par question)
 - 📊 **Barre de progression** visuelle
-- 🎨 Animations fluides
+- 🎨 Animations fluides et interactif
 - 📱 Design **100% responsive** adapté à tous écrans
 - ✅❌ Feedback visuel immédiat avec émojis
 - 📝 Résumé des résultats
