@@ -1,6 +1,9 @@
 # 📚 QuizMada
 
-Un quiz interactif et responsive testant vos connaissances avec des fonctionnalités modernes.
+Bienvenue dans **Quiz Mada**, un quiz interactif et amusant conçu pour tester vos connaissances sur la culture, l’histoire et les merveilles de Madagascar!, ce projet combine un design moderne et une expérience utilisateur fluide pour vous divertir tout en apprenant.
+
+## Aperçu
+Quiz Mada vous emmène dans une aventure ludique à travers des questions variées sur Madagascar. Que vous soyez un passionné de culture malgache ou simplement curieux, ce quiz est fait pour vous ! 🌴
 
 ## 🎮 Fonctionnalités Principales
 - ⏱️ **Timer dynamique** (10 secondes par question)
