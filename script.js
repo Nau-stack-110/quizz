@@ -1220,18 +1220,16 @@ function showQuestion() {
     const optionsEl = document.querySelector('.options-grid');
     const progressEl = document.querySelector('.progress');
 
-    // Calculer la progression pour atteindre 100% à la dernière question
     progressEl.style.width = `${((currentQuestion + 1) / questions.length) * 100}%`;
     questionEl.classList.remove('animate-fade', 'shake');
     optionsEl.innerHTML = '';
-    void questionEl.offsetWidth; // Forcer le reflow pour l'animation
+    void questionEl.offsetWidth; 
     questionEl.classList.add('animate-fade');
     timerEl.classList.add('animate-pulse');
 
     // Récupérer la question actuelle
     const currentQ = questions[currentQuestion];
 
-    // Créer un tableau d'objets pour suivre les options et leurs indices originaux
     const optionsWithIndices = currentQ.options.map((option, index) => ({
         option,
         originalIndex: index
@@ -1268,7 +1266,6 @@ function checkAnswer(selectedIndex) {
     // Stocker la réponse de l'utilisateur
     userAnswers[currentQuestion] = selectedIndex;
 
-    // Désactiver les boutons et mettre à jour l'ARIA
     options.forEach((option, index) => {
         option.disabled = true;
         option.setAttribute('aria-checked', index === selectedIndex ? 'true' : 'false');
@@ -1279,18 +1276,18 @@ function checkAnswer(selectedIndex) {
         options[selectedIndex].style.backgroundColor = '#2f9e44';
         options[selectedIndex].innerHTML += ' ✅';
         score++; // Incrémenter le score
-        console.log(`Question ${currentQuestion + 1}: Correct! Score = ${score}`); // Log pour débogage
+        console.log(`Question ${currentQuestion + 1}: Correct! Score = ${score}`); 
     } else {
         options[selectedIndex].style.backgroundColor = '#f87171';
         options[selectedIndex].innerHTML += ' ❌';
         options[correctIndex].style.backgroundColor = '#2f9e44';
         document.querySelector('.quiz-container').classList.add('shake');
-        console.log(`Question ${currentQuestion + 1}: Incorrect. Score = ${score}`); // Log pour débogage
+        console.log(`Question ${currentQuestion + 1}: Incorrect. Score = ${score}`); 
     }
 
     clearInterval(timer);
     timerEl.classList.remove('animate-pulse');
-    setTimeout(nextQuestion, 2000); // Passer à la question suivante après 2 secondes
+    setTimeout(nextQuestion, 2000); // Passer à la question suivante
 }
 
 function startTimer() {
@@ -1312,7 +1309,7 @@ function handleTimeOut() {
     const correctIndex = questions[currentQuestion].correct;
     const options = document.querySelectorAll('.option-btn');
 
-    userAnswers[currentQuestion] = null; // Marquer comme non répondu
+    userAnswers[currentQuestion] = null; 
     options.forEach(option => option.disabled = true);
     options[correctIndex].style.backgroundColor = '#2f9e44';
     document.querySelector('.quiz-container').classList.add('shake');
@@ -1338,7 +1335,6 @@ function showFinalScore() {
         `;
     });
 
-    // Log pour débogage
     console.log(`Final Score: ${score}/10`);
 
     resultEl.innerHTML = `
